@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Datepicker from 'vuejs-datepicker'
 
 import Catalog from "./views/Catalog.vue"
 import Home from "./views/Home.vue"
@@ -44,7 +45,12 @@ const router = new VueRouter({
   ]
 })
 
-export default router
+export default {
+  router,
+  components: {
+    Datepicker
+  }
+}
 
 new Vue({
   render: h => h(App),

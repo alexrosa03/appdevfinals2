@@ -20,5 +20,10 @@ npm run build
 npm run lint
 ```
 
+### For DatePicker widget
+```
+npm install vuejs-datepicker --save
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
