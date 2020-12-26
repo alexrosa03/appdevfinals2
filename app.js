@@ -1,14 +1,12 @@
-const express = require("express");
+const express = require('express');
 const bodyParser = require("body-parser");
-const sql = require("mysql");
-const bcrypt = require("bcrypt");
-const urlEncodedParser = bodyParser.urlencoded({extended: false});
-const saltRounds = 10;
 const app = express();
-const ejs = require('ejs');
+const cors = require("cors");
+app.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
+const urlEncodedParser = bodyParser.urlencoded({extended: false});
 
-const session = require("express-session");
-const saltR = 10;
 const mysql = require("mysql");
 const connection =  mysql.createConnection({
     multipleStatements: true,
@@ -30,20 +28,20 @@ app.get('/', (req,res)=>{
     res.setHeader('Access-Control-Allow-Credentials', true);
 });
 
-app.get('/login', (req,res)=>{ 
+/*app.get('/login', (req,res)=>{ 
     console.log("test");
     connection.query("SELECT 'username' FROM account WHERE username = '"+req.body.username+"'",(err,result)=>{
         if (err) throw err;
-        if(response.length!=0){ //&& bcrypt.compareSync(req.body.password, response[0]['password'])){
+        if(result.length!=0){ //&& bcrypt.compareSync(req.body.password, response[0]['password'])){
             console.log("correct");
-            req.session.username = response[0]['username'];
+            req.session.username = result[0]['username'];
             res.redirect("/home");
         } else {
             console.log("wrong");
               //res.redirect("/home");
         }
     })
-});
+});*/
 
 app.get('/home', (req,res)=>{
     res.render();
@@ -54,16 +52,15 @@ app.get('/home', (req,res)=>{
 
 app.post('/login', urlEncodedParser,async (req,res)=>{ 
     console.log("test");
-    connection.query("SELECT 'username' FROM account WHERE username = '"+req.body.username+"'",(err,result)=>{
-            //NOT WORKING PROPERLY SO I JUST LET IT REDIRECT TO NOTES AS LONG AS CORRECT USERNAME
+    connection.query("SELECT 'username' FROM account WHERE username = '"+req.body.username+"' AND password = '"+req.body.password+"'",(err,result)=>{
         if (err) throw err;
-        if(response.length!=0){ //&& bcrypt.compareSync(req.body.password, response[0]['password'])){
+        console.log(req.body.username);
+        if(result.length!=0){ //&& bcrypt.compareSync(req.body.password, response[0]['password'])){
             console.log("correct");
-            req.session.username = response[0]['username'];
-            res.redirect("/home");
+            res.send("true");
         } else {
             console.log("wrong");
-              //res.redirect("/home");
+            res.send("false");
         }
     })
 });

@@ -1,13 +1,13 @@
 <template>
     <div class="row align-items-center justify-content-center">
             <div class="login-form col-md-5">
-                    <form action="/home" method="GET">
+                    <form @submit="loginForm">
                         <h2 class="text-center">Welcome to iNVENTORY</h2>
                         <div class="form-group">
-                            <input type="text" id="username" class="form-control" placeholder="username" required="password">
+                            <input type="text" id="username" v-model="username" class="form-control" placeholder="username" required="password">
                         </div>
                         <div class="form-group">
-                            <input type="password" id="password" class="form-control" placeholder="Password" required="required">
+                            <input type="password" id="password" v-model="password" class="form-control" placeholder="Password" required="required">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Log In</button>
@@ -56,15 +56,27 @@
 <script>
     import axios from 'axios';
     export default{
-        grabData: function(){
-        axios({
-            method: 'GET',
-            url: 'http:localhost:3000/login',
-            data:{
-                username: "admi",
-                password: "admin"
+        name: 'login',
+        data(){
+            return {
+                username: null,
+                password: null
             }
-        }).then(response => console.log(response));
+        },
+        methods: {
+            loginForm: function(){
+                axios({
+                    method: 'POST',
+                    url: 'http://localhost:3000/login',
+                    data:{username:this.username, password:this.password},
+                })
+                .then(response => this.session = response.data)
+                if (this.session == "true") {
+                    this.$router.push({ path: `/home` })
+             }
+            }
+            
         }
-}
+    }
+
 </script>
