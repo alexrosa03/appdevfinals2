@@ -73,7 +73,7 @@
                 .then(response => this.session = response.data)
                 if (this.session == "true") {
                     this.$router.push({ path: `/home` })
-             }
+                }
             }
             
         }
