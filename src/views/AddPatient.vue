@@ -9,31 +9,31 @@
         <div class="content">
           <div class="row align-items-center justify-content-center">
             <div class="login-form col-md-8">
-              <form action="/home" method="GET">
+              <form @submit="addPatient">
                   <h2 class="text-left">Add Patient</h2>
                   <div class="form-group">
                     <div class="input-group">
-                      <input type="text" id="f_name" class="form-control" placeholder="First Name" required="password" style="margin-right:10px;">
-                      <input type="text" id="m_name" class="form-control" placeholder="Middle Name" required="password"  style="margin-right:10px;">
-                      <input type="text" id="l_name" class="form-control" placeholder="Last Name" required="password">
+                      <input type="text" id="f_name" v-model="name" class="form-control" placeholder="First Name" required="password" style="margin-right:10px;">
+                      <input type="text" id="m_name" v-model="m_name" class="form-control" placeholder="Middle Name" required="password"  style="margin-right:10px;">
+                      <input type="text" id="l_name" v-model="l_name" class="form-control" placeholder="Last Name" required="password">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <div class="gender-select" style="margin-right:10px;">   
-                        <select class="form-control">
+                        <select class="form-control" v-model="gender">
                           <option hidden>Gender</option>
                           <option>Male</option>
                           <option>Female</option>
                         </select>  
                       </div>
                       <div class="datetimepicker">
-                        <datepicker style="margin-right:10px;" placeholder="Date of Birth"></datepicker>
+                        <datepicker v-model="date" style="margin-right:10px;" placeholder="Date of Birth"></datepicker>
                       </div>
-                      <input type="text" id="barangay" class="form-control" placeholder="Barangay" required="password"  style="margin-right:10px;" >
-                      <input type="text" id="phone_number" class="form-control" placeholder="Phone Number" required="password" style="margin-right:10px;">
-                      <input type="text" id="email" class="form-control" placeholder="Email Address" required="password" style="margin-right:10px;">
-                      <input type="text" id="nationality" class="form-control" placeholder="Nationality" required="password" style="margin-right:10px;">
+                      <input type="text" v-model="barangay" id="barangay" class="form-control" placeholder="Barangay" required="password"  style="margin-right:10px;" >
+                      <input type="text" v-model="phone_number" id="phone_number" class="form-control" placeholder="Phone Number" required="password" style="margin-right:10px;">
+                      <input type="text" v-model="email" id="email" class="form-control" placeholder="Email Address" required="password" style="margin-right:10px;">
+                      <input type="text" v-model="nationality" id="nationality" class="form-control" placeholder="Nationality" required="password" style="margin-right:10px;">
                     </div>
                   </div>
                   <br/><br/>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import header from '../components/header.vue'
 import sidebar from '../components/sidebar.vue'
 import footer from '../components/footer.vue'
@@ -92,7 +93,17 @@ export default {
       language: "en",
       languages: lang,
       vModelExample: null,
-      changedMonthLog: []
+      changedMonthLog: [],
+      name: null,
+      l_name: null,
+      m_name: null,
+      gender: null,
+      barangay: null,
+      date: null,
+      phone_number: null,
+      email: null,
+      nationality: null
+          
     };
   },
   methods: {
@@ -165,7 +176,30 @@ export default {
     },
     logChangedMonth(date) {
       this.changedMonthLog.push(date)
-    }
+    },
+   
+
+
+  addPatient: function(){
+    axios({
+      method: 'POST',
+        url: 'http://localhost:3000/addPatient',
+          data:{
+            name:this.name, 
+            m_name:this.m_name,
+            l_name:this.l_name,
+            gender: this.gender,
+            barangay: this.barangay,
+            date:this.date,
+            phone_number: this.phone_number,
+            email: this.email,
+            nationality:this.nationality
+          },
+      })
+      .then(response => this.session = response.data)
+
+  }
+
   }
 }
 </script>

@@ -51,7 +51,6 @@ app.get('/home', (req,res)=>{
 //POST FUNCTIONS
 
 app.post('/login', urlEncodedParser,async (req,res)=>{ 
-    console.log("test");
     connection.query("SELECT 'username' FROM account WHERE username = '"+req.body.username+"' AND password = '"+req.body.password+"'",(err,result)=>{
         if (err) throw err;
         console.log(req.body.username);
@@ -63,6 +62,14 @@ app.post('/login', urlEncodedParser,async (req,res)=>{
             res.send("false");
         }
     })
+});
+
+app.post("/addPatient", urlEncodedParser, async (req,res)=>{
+    console.log("Add aptient");
+    connection.query("INSERT INTO patient_info (name, m_name, l_name, gender, birthdate, barangay, phone_number, email, nationality) VALUES('"+req.body.name+"','"+req.body.m_name+"','"+req.body.l_name+"','"+req.body.gender+"','"+req.body.date+"','"+req.body.barangay+"',"+req.body.phone_number+",'"+req.body.email+"','"+req.body.nationality+"')",(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+    })                                                        
 });
 
 app.listen(3000,()=>{
