@@ -29,4 +29,8 @@ export default {
   body {
     margin: auto;
   }
+
+  .row {
+    width: 100%;
+  }
 </style>

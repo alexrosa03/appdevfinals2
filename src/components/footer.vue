@@ -1,9 +1,6 @@
 <template>
   <div class="footer">
-    <!-- <a>The</a>
-    <a>Greatest</a>
-    <a>Show</a>
-    <a>Tomorrow</a> -->
+
   </div>
 </template>
 

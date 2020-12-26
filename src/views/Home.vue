@@ -15,13 +15,13 @@
 
             <h1>Summary</h1>
                 <div class="row">
-                    <div class="card col-md-5" style="display: inline-block; margin: 0px 5px 5px 15px;">
+                    <div class="card col-md-4" style="display: inline-block; margin: 0px 5px 5px 15px;">
                         <div class="card-body">
                             <h5 class="card-title">Patients Today</h5>
                             <p class="card-text">46</p>
                         </div>
                     </div>
-                    <div class="card col-md-5" style="display: inline-block; margin: 0px 5px 5px 0px;">
+                    <div class="card col-md-4" style="display: inline-block; margin: 0px 5px 5px 0px;">
                         <div class="card-body">
                             <h5 class="card-title">Patients Yesterday</h5>
                             <p class="card-text">72</p>
@@ -29,13 +29,13 @@
                     </div>
 
 
-                    <div class="card col-md-5" style="display: inline-block; margin: 0px 5px 5px 15px;">
+                    <div class="card col-md-4" style="display: inline-block; margin: 0px 5px 5px 15px;">
                         <div class="card-body">
                             <h5 class="card-title">Patients This Month</h5>
                             <p class="card-text">1012</p>
                         </div>
                     </div>
-                    <div class="card col-md-5" style="display: inline-block; margin: 0px 5px 5px 0px;">
+                    <div class="card col-md-4" style="display: inline-block; margin: 0px 5px 5px 0px;">
                         <div class="card-body">
                             <h5 class="card-title">Patients Last Month</h5>
                             <p class="card-text">1854</p>
@@ -47,12 +47,12 @@
 
             <div class="row">
                 <div class="col-lg box">
-                    <div class="row planBox premium text-left">
-                        <div class="col-md-12 section1">
+                    <div class="row planBox text-left">
+                        <div class="col-md-8 section1">
                             <h2>New Patients This Week</h2>
                         </div>
 
-                        <div class="col-md-12 section2 tableBox">
+                        <div class="col-md-10 section2 tableBox">
                             <table class="col-md-6 table table-striped">
                                 <thead>
                                     <tr>
@@ -94,8 +94,8 @@ export default {
 <style>
   .content {
     float: right;
-    position: sticky;
-    width: 88%;
-    padding-left: 20px;
+    /* position: sticky; */
+    width: 100%;
+    /* padding-left: 20px; */
   }
 </style>
