@@ -1,26 +1,19 @@
 <template>
-  <div id="app">
-    <eader/>
-      <side/>
-      <router-view/>
-    <foot/>
-
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
-import header from './components/header.vue'
-import sidebar from './components/sidebar.vue'
-import footer from './components/footer.vue'
-// import content from './components/content.vue'
+// import header from './components/header.vue'
+// import sidebar from './components/sidebar.vue'
+// import footer from './components/footer.vue'
+
 
 export default {
   name: 'App',
   components: {
-    'eader': header,
-    'side': sidebar,
-    'foot': footer
-    // 'cont': content
+    // 'eader': header,
+    // 'side': sidebar,
+    // 'foot': footer
   }
 }
 </script>
@@ -31,5 +24,9 @@ export default {
     position: sticky;
     width: 88%;
     padding-left: 20px;
+  }
+
+  body {
+    margin: auto;
   }
 </style>

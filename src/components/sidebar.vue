@@ -2,7 +2,7 @@
 
 <template>
   <nav class="sidebar">
-      <router-link to="/">Home</router-link>
+      <router-link to="/home">Home</router-link>
       <router-link to="/catalog">Catalog</router-link>
       <router-link to="/add-patient">New Patient</router-link>
   </nav>

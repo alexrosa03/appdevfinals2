@@ -8,6 +8,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Catalog from "./views/Catalog.vue"
 import Home from "./views/Home.vue"
 import AddPatient from "./views/AddPatient.vue"
+import Login from "./views/Login.vue"
 // import Content from "./components/content.vue"
 
 
@@ -21,7 +22,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
+      path: "/home",
       name: "Home",
       component: Home
     },
@@ -34,7 +35,12 @@ const router = new VueRouter({
       path: "/add-patient",
       name: "Add Patient",
       component: AddPatient
-    }
+    },
+    {
+      path: "/",
+      name: "Login",
+      component: Login
+    },
   ]
 })
 
