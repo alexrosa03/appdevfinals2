@@ -1,7 +1,7 @@
 <template>
     <div class="row align-items-center justify-content-center">
             <div class="login-form col-md-5">
-                    <form>
+                    <form method="POST">
                         <h2 class="text-center">Welcome to iNVENTORY</h2>
                         <div class="form-group">
                             <input type="text" id="username" class="form-control" placeholder="username" required="password">
@@ -52,3 +52,19 @@
     font-weight: bold;
 }
 </style>
+
+<script>
+    import axios from 'axios';
+    export default{
+        grabData: function(){
+        axios({
+            method: 'POST',
+            url: 'http:localhost:3000/login',
+            data:{
+                username: "admin",
+                password: "admin"
+            }
+        }).then(response => console.log(response));
+        }
+}
+</script>
