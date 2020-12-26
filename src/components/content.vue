@@ -21,5 +21,6 @@ export default {
         float: right;
         position: sticky;
         width: 88%;
+        padding-left: 20px;
     }
 </style>

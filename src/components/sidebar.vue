@@ -4,10 +4,7 @@
   <nav class="sidebar">
       <router-link to="/">Home</router-link>
       <router-link to="/catalog">Catalog</router-link>
-      <a>Poopsie</a>
-      <a>Chimple</a>
-      <a>Butt</a>
-      <a>chimken</a>
+      <router-link to="/add-patient">New Patient</router-link>
   </nav>
 </template>
 
@@ -27,13 +24,9 @@ export default {
         height: 100%;
         position: fixed;
         width: 12%;
-        /* top: 0;
-        left: 0; */
         background-color: #111;
         overflow-x: hidden;
-        /* margin-top: 5%;  */
         padding: 30px 10px;
-
     }
 
     .sidebar a {
