@@ -13,7 +13,7 @@
 
             <br /><br /><br />
 
-            <h1>Summary</h1>
+            <h2>Summary</h2>
                 <div class="row">
                     <div class="card col-md-4" style="display: inline-block; margin: 0px 5px 5px 15px;">
                         <div class="card-body">
@@ -61,7 +61,29 @@
                                         <th scope="col">Address</th>
                                         <th scope="col">Doctor</th>
                                     </tr>
+                                    
                                 </thead>
+                                <!-- placeholder data -->
+                                <tbody>
+                                    <tr>
+                                        <td>12/12/2020</td>
+                                        <td>Kyla Mondejar</td>
+                                        <td>Labangon</td>
+                                        <td>Dr. Andrea Barameda, PhD.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/18/2020</td>
+                                        <td>Sepia Times</td>
+                                        <td>Mango Ave.</td>
+                                        <td>Dr. Icy Ang, PhD.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/26/2020</td>
+                                        <td>Louis Arcilla</td>
+                                        <td>Lapu-lapu</td>
+                                        <td>Dr. Grisha Jaeger, PhD.</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -94,8 +116,6 @@ export default {
 <style>
   .content {
     float: right;
-    /* position: sticky; */
     width: 100%;
-    /* padding-left: 20px; */
   }
 </style>
