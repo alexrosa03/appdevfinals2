@@ -1,7 +1,7 @@
 <template>
     <div class="row align-items-center justify-content-center">
             <div class="login-form col-md-5">
-                    <form method="POST">
+                    <form action="/home" method="GET">
                         <h2 class="text-center">Welcome to iNVENTORY</h2>
                         <div class="form-group">
                             <input type="text" id="username" class="form-control" placeholder="username" required="password">
@@ -58,10 +58,10 @@
     export default{
         grabData: function(){
         axios({
-            method: 'POST',
+            method: 'GET',
             url: 'http:localhost:3000/login',
             data:{
-                username: "admin",
+                username: "admi",
                 password: "admin"
             }
         }).then(response => console.log(response));
